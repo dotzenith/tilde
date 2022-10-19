@@ -144,21 +144,16 @@ tilde only has two main dependencies `pyinfra` and `python-dotenv`. You can eith
 
 ```
 $ poetry shell    # Open up a virtual env using Poetry
-
 $ poetry install  # Install pyinfra and dotenv 
-
 $ ./run.sh        # Run tilde on your homeserver
 ```
 
 #### ❖ Using a normal venv
 ```
 $ python3 -m venv tilde_venv          # Create a venv for tilde
-
 $ source tilde_venv/bin/activate      # Activate the venv
-
 $ pip3 install pyinfra python-dotenv  # Install pyinfra and dotenv
-
-./run.sh                            # Run tilde on your homeserver
+$ ./run.sh                            # Run tilde on your homeserver
 ```
 
 If everything goes as expected, you'll have a shiny new homeserver complete with all the features mentioned earlier!
