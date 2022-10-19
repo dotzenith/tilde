@@ -29,7 +29,7 @@ apt.packages(
     _sudo=True,
 )
 
-# Make Tilde dir
+# Make tilde dir
 server.shell(
     name="Make tilde dir",
     commands=[

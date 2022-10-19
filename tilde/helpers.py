@@ -13,10 +13,10 @@ USERNAME = os.environ["SERVER_USER"]
 
 def is_container_running(container_name: str) -> bool:
     """
+    Checks if a container is running in a very basic manner
+
     container_name: str
         The name of the container
-
-    Checks if a container is running in a very basic manner
     """
 
     command = "docker ps"

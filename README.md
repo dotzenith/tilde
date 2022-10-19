@@ -22,7 +22,7 @@
 
   <b></b>
 
-  Tilde is an effort to automagically deploy a homeserver with a few useful services using [pyinfra](https://pyinfra.com/).
+  tilde is an effort to automagically deploy a homeserver with a few useful services using [pyinfra](https://pyinfra.com/).
   While it's built for personal use cases in mind, it's general enough to be used by anyone. Expect breaking changes, this is forever a work in progress :)
 
   <b></b>
@@ -45,7 +45,7 @@
 
 ### ❖ Requirements
 
-While Tilde is meant to be very hands off, there's still a few things you'll need to do manually. It's not incredibly complicated, but the instructions are written under the assumption that you're at least a little bit familiar with unix commandline.
+While tilde is meant to be very hands off, there's still a few things you'll need to do manually. It's not incredibly complicated, but the instructions are written under the assumption that you're at least a little bit familiar with unix commandline.
 
 <b></b>
 
@@ -94,7 +94,7 @@ Once you've figured out how to do so, forward port `51820` to port `51820` of yo
 
 With a residential internet connection, your public IP is liable to change at any given moment. This is why you'll need to set up Dynamic DNS to make sure the Wireguard tunnel can still connect you to your home network even if your public IP changes.
 
-Tilde assumes this will be done using Cloudflare and your own domain. You can also use something like [freedns](https://freedns.afraid.org/) but you'll need to modify some code to get that to work. 
+tilde assumes this will be done using Cloudflare and your own domain. You can also use something like [freedns](https://freedns.afraid.org/) but you'll need to modify some code to get that to work. 
 
 Once you have a domain from either Cloudflare itself or transferred over to Cloudflare's DNS servers, you'll need to add a new "A" record. Make sure the proxy status for the record is set to `DNS` only.
 
@@ -137,7 +137,7 @@ Or you can change them, it's up to you!
 
 Phew that was a lot!! But we're finally ready to deploy!
 
-Tilde only has two main dependencies `pyinfra` and `python-dotenv`. You can either use [Poetry](https://python-poetry.org/) like I do, or just use a venv and install the packages yourself, it's totally up to you!
+tilde only has two main dependencies `pyinfra` and `python-dotenv`. You can either use [Poetry](https://python-poetry.org/) like I do, or just use a venv and install the packages yourself, it's totally up to you!
 
 #### ❖ Using Poetry
 
@@ -146,7 +146,7 @@ $ poetry shell    # Open up a virtual env using Poetry
 
 $ poetry install  # Install pyinfra and dotenv 
 
-$ ./run.sh        # Run Tilde on your homeserver
+$ ./run.sh        # Run tilde on your homeserver
 ```
 
 #### ❖ Using a normal venv
@@ -157,7 +157,7 @@ $ source tilde_venv/bin/activate      # Activate the venv
 
 $ pip3 install pyinfra python-dotenv  # Install pyinfra and dotenv
 
-./run.sh                            # Run Tilde on your homeserver
+./run.sh                            # Run tilde on your homeserver
 ```
 
 If everything goes as expected, you'll have a shiny new homeserver complete with all the features mentioned earlier!
