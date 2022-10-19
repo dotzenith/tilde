@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tilde"
+version = "0.1.0"
+description = "An automatic homeserver deployment, forever a work in progress"
+authors = ["dotzenith"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyinfra = "^2.4"
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
