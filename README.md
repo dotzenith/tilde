@@ -116,6 +116,7 @@ As the final step of preparation, you'll need to fill out some environment varia
 
 ```
 # run.sh
+
 export SERVER_USER=<non-root-user>
 export HOMESERVER=<homeserver-from-your-ssh-config>
 ```
