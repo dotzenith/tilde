@@ -160,7 +160,7 @@ If everything goes as expected, you'll have a shiny new homeserver complete with
 
 ### ❖ What's New? 
 
-0.1.0 - Initial Release
+0.1.1 - Minor dependency changes
 
 ---
 

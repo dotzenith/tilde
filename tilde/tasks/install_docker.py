@@ -8,6 +8,7 @@ from pyinfra.operations import server
 
 from tilde.helpers import USERNAME
 
+
 # Helper function
 def is_docker_installed():
     """
