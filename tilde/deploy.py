@@ -3,50 +3,43 @@ The parent deploy script for pyinfra
 """
 
 from pyinfra import local
-from pyinfra.operations import apt, server
-
-from tilde.helpers import USERNAME
+from pyinfra.operations import apt
 
 # Prompt for sudo password when starting
 _use_sudo_password = True
 
 # Update Apt
 apt.update(
-    name="Update apt repositories",
-    _sudo=True,
+    name="Update apt repositories", #type: ignore
+    _sudo=True, #type: ignore
 )
 
 # Add some crucial packages
 apt.packages(
-    name="Install crucial packages",
+    name="Install crucial packages", #type: ignore
     packages=["sudo", "curl", "git"],
-    _sudo=True,
+    _sudo=True, #type: ignore
 )
 
 # Installing frequently used packages
 apt.packages(
-    name="Install frequently used packages",
+    name="Install frequently used packages", #type: ignore
     packages=["vim", "neofetch"],
-    _sudo=True,
+    _sudo=True, #type: ignore
 )
 
-# Make tilde dir
-server.shell(
-    name="Make tilde dir",
-    commands=[
-        f"if [ ! -d /home/{USERNAME}/tilde ]; \
-                then mkdir /home/{USERNAME}/tilde; fi",
-    ],
-)
+
+# Set up some directories
+local.include("tasks/make_dirs.py")
+
+# Sync Files
+local.include("tasks/sync_files.py")
 
 # Install Docker
 local.include("tasks/install_docker.py")
 
 # Deploy Portainer
 local.include("tasks/deploy_portainer.py")
-
-# Sync Files
-local.include("tasks/sync_files.py")
 
 # Deploy Wireguard
 local.include("tasks/deploy_wireguard.py")

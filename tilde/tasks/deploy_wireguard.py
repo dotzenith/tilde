@@ -6,11 +6,9 @@ It first runs an update script for Dynamic DNS and then sets up a cron job to ru
 It then uses a docker-compose file to spin up the stack
 """
 from pyinfra import host, logger
-from pyinfra.operations import server
+from pyinfra.operations import server, files
 
-from tilde.helpers import USERNAME, get_docker_env_vars, is_container_running
-
-env_vars = get_docker_env_vars()
+from tilde.helpers import USERNAME, is_container_running
 
 # Helper function
 def is_cron_job_initiated(cron_file: str):
@@ -30,9 +28,9 @@ def is_cron_job_initiated(cron_file: str):
 
 # Update cloudflare dns
 server.shell(
-    name="Run DDNS script",
+    name="Run DDNS script", #type: ignore
     commands=[f"bash /home/{USERNAME}/tilde/templates/cloudflare-template.sh"],
-    _sudo=True,
+    _sudo=True, #type: ignore
 )
 
 # Add cron job
@@ -40,29 +38,29 @@ if is_cron_job_initiated("cloudflare_job"):
     logger.info("Cloudflare job already set up")
 else:
     server.shell(
-        name="Add DDNS script to cron",
+        name="Add DDNS script to cron", #type: ignore
         commands=[
             f"echo '0 0 * * * /home/{USERNAME}/tilde/templates/cloudflare-template.sh' > cloudflare_job",
             "mv cloudflare_job /etc/cron.d/",
         ],
-        _sudo=True,
+        _sudo=True, #type: ignore
     )
 
 # Spin up stack
 if is_container_running("wireguard"):
     logger.info("Wireguard container already running")
 else:
-    server.shell(
-        name="Make directory for Wireguard",
-        commands=[
-            f"if [ ! -d {env_vars['WG_DIR']} ]; then mkdir -p {env_vars['WG_DIR']}; fi"
-        ],
+    files.directory(
+        name = "Make directory for Wireguard", #type: ignore
+        path = "/home/{USERNAME}/data/wireguard",
+        user = USERNAME,
+        present = True,
     )
     server.shell(
-        name="Deploy Wireguard container",
+        name="Deploy Wireguard container", #type: ignore
         commands=[
             f"docker compose -f /home/{USERNAME}/tilde/compose/wireguard.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
-        _sudo=True,
+        _sudo=True, #type: ignore
     )
