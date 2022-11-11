@@ -58,10 +58,8 @@ While tilde is meant to be very hands off, there's still a few things you'll nee
 
 If you don't have ssh keys set up, please take a look at the [Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on the topic.
 
-NOTE: This is for your personal machine, NOT for the server. 
 
 Your ssh config should should look something like this if you're on MacOS:
-
 
 ```
 # .ssh/config
@@ -75,8 +73,9 @@ host *
   UseKeychain yes
   IdentityFile ~/.ssh/id_ed25519
 ```
-
 > Replace \<homeserver\>, \<internal-ip-of-server\>, and \<non-root-user\> with the appropriate values (without the < >)
+
+NOTE: This is for your personal machine, NOT for the server. 
 
 If you're on a different OS, the guide has instructions for windows and linux as well, I trust that you'll be able to follow them :)
 
@@ -130,10 +129,6 @@ WG_HOST=<record_name.your_domain.com>
 ```
 > Without the < >
 
-There are a few other values in the [.env](./tilde/compose/.env) file but you can leave those alone, they'll be fixed up by the [run script](./run.sh). 
-
-Or you can change them, it's up to you!
-
 ### ❖ Deploying.
 
 Phew that was a lot!! But we're finally ready to deploy!
@@ -160,7 +155,7 @@ If everything goes as expected, you'll have a shiny new homeserver complete with
 
 ### ❖ What's New? 
 
-0.1.1 - Minor dependency changes
+0.1.2 - Changes to directory structure and directory creation logic
 
 ---
 
