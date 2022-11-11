@@ -8,7 +8,7 @@ from tilde.helpers import USERNAME
 
 # Sync templates
 files.sync(
-    name="Sync templates", #type: ignore
+    name="Sync templates",  # type: ignore
     user=USERNAME,
     src="templates",
     dest=f"/home/{USERNAME}/tilde/templates/",
@@ -16,7 +16,7 @@ files.sync(
 
 # Sync compose files
 files.sync(
-    name="Sync compose files", # type: ignore
+    name="Sync compose files",  # type: ignore
     user=USERNAME,
     src="compose",
     dest=f"/home/{USERNAME}/tilde/compose/",

@@ -5,8 +5,7 @@ Creates directories for Jellffin data and uses a docker-compose file to spin up 
 """
 
 from pyinfra import logger
-from pyinfra.operations import server
-from pyinfra.operations import files
+from pyinfra.operations import files, server
 
 from tilde.helpers import USERNAME, is_container_running
 
@@ -16,36 +15,36 @@ if is_container_running("jellyfin"):
 else:
     # Make directories for jellyfin files
     files.directory(
-        name = "Make jellyfin config directory", # type: ignore
-        path = f"/home/{USERNAME}/data/jellyfin/config",
-        present = True,
-        user = USERNAME,
+        name="Make jellyfin config directory",  # type: ignore
+        path=f"/home/{USERNAME}/data/jellyfin/config",
+        present=True,
+        user=USERNAME,
     )
     files.directory(
-        name = "Make jellyfin movies directory", # type: ignore
-        path = f"/home/{USERNAME}/data/jellyfin/movies",
-        present = True,
-        user = USERNAME,
+        name="Make jellyfin movies directory",  # type: ignore
+        path=f"/home/{USERNAME}/data/jellyfin/movies",
+        present=True,
+        user=USERNAME,
     )
     files.directory(
-        name = "Make jellyfin tv directory", # type: ignore
-        path = f"/home/{USERNAME}/data/jellyfin/tv",
-        present = True,
-        user = USERNAME,
-        _sudo = True, #type: ignore
+        name="Make jellyfin tv directory",  # type: ignore
+        path=f"/home/{USERNAME}/data/jellyfin/tv",
+        present=True,
+        user=USERNAME,
+        _sudo=True,  # type: ignore
     )
     files.directory(
-        name = "Make jellyfin music directory", # type: ignore
-        path = f"/home/{USERNAME}/data/jellyfin/music",
-        present = True,
-        user = USERNAME,
-        _sudo = True, #type: ignore
+        name="Make jellyfin music directory",  # type: ignore
+        path=f"/home/{USERNAME}/data/jellyfin/music",
+        present=True,
+        user=USERNAME,
+        _sudo=True,  # type: ignore
     )
     server.shell(
-        name="Deploy Jellyfin container", # type: ignore
+        name="Deploy Jellyfin container",  # type: ignore
         commands=[
             f"docker compose -f /home/{USERNAME}/tilde/compose/jellyfin.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
-        _sudo=True, # type: ignore
+        _sudo=True,  # type: ignore
     )

@@ -10,22 +10,22 @@ _use_sudo_password = True
 
 # Update Apt
 apt.update(
-    name="Update apt repositories", #type: ignore
-    _sudo=True, #type: ignore
+    name="Update apt repositories",  # type: ignore
+    _sudo=True,  # type: ignore
 )
 
 # Add some crucial packages
 apt.packages(
-    name="Install crucial packages", #type: ignore
+    name="Install crucial packages",  # type: ignore
     packages=["sudo", "curl", "git"],
-    _sudo=True, #type: ignore
+    _sudo=True,  # type: ignore
 )
 
 # Installing frequently used packages
 apt.packages(
-    name="Install frequently used packages", #type: ignore
+    name="Install frequently used packages",  # type: ignore
     packages=["vim", "neofetch"],
-    _sudo=True, #type: ignore
+    _sudo=True,  # type: ignore
 )
 
 
