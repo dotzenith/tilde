@@ -13,7 +13,7 @@ if is_container_running("portainer"):
     logger.info("Portainer Already running")
 else:
     server.shell(
-        name="Deploy Portainer",
+        name="Deploy Portainer",  # type: ignore
         commands=[
             "docker volume create portainer_data",
             "docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer \
@@ -22,5 +22,5 @@ else:
             -v portainer_data:/data \
             portainer/portainer-ce:2.9.3",
         ],
-        _sudo=True,
+        _sudo=True,  # type: ignore
     )

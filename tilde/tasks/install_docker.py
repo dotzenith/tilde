@@ -27,20 +27,20 @@ if is_docker_installed():
     logger.info("Docker Already Installed")
 else:
     server.shell(
-        name="Install docker",
+        name="Install docker",  # type: ignore
         commands=[
             "curl -fsSL https://get.docker.com -o get-docker.sh",
             "sh get-docker.sh",
             "systemctl enable docker",
         ],
-        _sudo=True,
+        _sudo=True,  # type: ignore
     )
 
     server.shell(
-        name=f"Create docker group and add {USERNAME} to group",
+        name=f"Create docker group and add {USERNAME} to group",  # type: ignore
         commands=[
             "getent group somegroupname || groupadd somegroupname",
             f"usermod -aG docker {USERNAME}",
         ],
-        _sudo=True,
+        _sudo=True,  # type: ignore
     )

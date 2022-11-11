@@ -17,10 +17,10 @@ if is_container_running("nextcloud"):
 else:
 
     server.shell(
-        name="Deploy Nextcloud container",
+        name="Deploy Nextcloud container",  # type: ignore
         commands=[
             f"docker compose -f /home/{USERNAME}/tilde/compose/nextcloud.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
-        _sudo=True,
+        _sudo=True,  # type: ignore
     )
