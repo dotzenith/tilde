@@ -1,7 +1,5 @@
 """
-A task file to deploy nextcloud
-
-Uses a docker-compose file to spin up the stack with Nextcloud, Postgres, and Redis
+A task file to deploy caddy
 """
 
 from pyinfra import logger

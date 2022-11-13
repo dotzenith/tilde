@@ -39,13 +39,16 @@ local.include("tasks/sync_files.py")
 local.include("tasks/install_docker.py")
 
 # Deploy Portainer
-local.include("tasks/deploy_portainer.py")
+local.include("tasks/portainer.py")
 
 # Deploy Wireguard
-local.include("tasks/deploy_wireguard.py")
+local.include("tasks/wireguard.py")
 
 # Deploy Nextcloud
-local.include("tasks/deploy_nextcloud.py")
+local.include("tasks/nextcloud.py")
+
+# Deploy Caddy
+local.include("tasks/caddy.py")
 
 # Deploy Jellyfin
 local.include("tasks/deploy_jellyfin.py")
