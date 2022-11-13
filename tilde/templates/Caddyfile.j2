@@ -1,0 +1,24 @@
+wireguard.{{ DOMAIN }}:443 {
+    tls {$CLOUDFLARE_EMAIL} {
+        dns cloudflare {$CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_IP }}:51821
+}
+
+jellyfin.{{ DOMAIN }}:443 {
+    tls {$CLOUDFLARE_EMAIL} {
+        dns cloudflare {$CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_IP }}:8096
+}
+
+portainer.{{ DOMAIN }}:443 {
+    tls {$CLOUDFLARE_EMAIL} {
+        dns cloudflare {$CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_IP }}:9000
+}
+
+http://nextcloud.omashu.xyz {
+    reverse_proxy {{ INTERNAL_IP }}:8080
+}

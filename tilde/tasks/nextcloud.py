@@ -7,9 +7,7 @@ Uses a docker-compose file to spin up the stack with Nextcloud, Postgres, and Re
 from pyinfra import logger
 from pyinfra.operations import server
 
-from tilde.helpers import USERNAME, get_docker_env_vars, is_container_running
-
-env_vars = get_docker_env_vars()
+from tilde.helpers import USERNAME, is_container_running
 
 # Spin up stack
 if is_container_running("nextcloud"):

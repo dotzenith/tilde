@@ -1,5 +1,5 @@
 """
-A task to sync the templates and docker-compose files
+A task to make important directories and set permissions
 """
 
 from pyinfra.operations import files, server
