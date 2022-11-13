@@ -2,7 +2,7 @@
 A task to sync the templates and docker-compose files
 """
 
-from pyinfra.operations import files
+from pyinfra.operations import files, server
 
 from tilde.helpers import USERNAME
 
@@ -15,7 +15,14 @@ files.directory(
 
 files.directory(
     name="Ensure a directory exists to store data for various services",  # type: ignore
-    path=f"/home/{USERNAME}/data",
+    path="/data",
     user=USERNAME,
     present=True,
+    _sudo=True, # type: ignore
+)
+
+server.shell(
+    name="Ensure permissions for /data", # type: ignore
+    commands=["chown -R $USER:$USER /data", "chmod -R a=,a+rX,u+w,g+w /data"],
+    _sudo=True, # type: ignore
 )
