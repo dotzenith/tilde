@@ -1,0 +1,24 @@
+wireguard.{{ DOMAIN }}:443 {
+    tls {env.CLOUDFLARE_EMAIL} {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_DOMAIN }}:51821
+}
+
+jellyfin.{{ DOMAIN }}:443 {
+    tls {env.CLOUDFLARE_EMAIL} {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_DOMAIN }}:8096
+}
+
+portainer.{{ DOMAIN }}:443 {
+    tls {env.CLOUDFLARE_EMAIL} {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy {{ INTERNAL_DOMAIN }}:9000
+}
+
+nextcloud.local:80 {
+    reverse_proxy {{ INTERNAL_DOMAIN }}:8080
+}

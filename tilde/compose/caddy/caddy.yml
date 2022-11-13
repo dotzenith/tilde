@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  Caddy:
+    image: caddycloudflare:latest
+    container_name: caddy
+    privileged: true
+    environment:
+      - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - ACME_AGREE=true
+    volumes:
+      - /home/naib/Caddy/config:/config
+      - /home/naib/Caddy/data:/data
+      - /home/naib/Caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
