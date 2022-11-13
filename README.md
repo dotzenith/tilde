@@ -193,9 +193,10 @@ $ ./run.sh                            # Run tilde on your homeserver
 
 If everything goes as expected, you'll have a shiny new homeserver complete with all the features mentioned earlier!
 
-If you opted to use Caddy. All services are available at `service.your-cloudflare-domain.com`. 
+If you opted to use Caddy. All services are available at `service.your-cloudflare-domain.com`
 
-If you opted to not use Caddy. The services are available at `homeserver-internal-ip:service-port`. 
+If you opted to not use Caddy. The services are available at `homeserver-internal-ip:service-port`
+
 The mapping for the ports is as follows
 
 - `wireguard: 51821`
