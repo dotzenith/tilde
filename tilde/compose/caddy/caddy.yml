@@ -9,9 +9,9 @@ services:
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
       - ACME_AGREE=true
     volumes:
-      - /home/naib/Caddy/config:/config
-      - /home/naib/Caddy/data:/data
-      - /home/naib/Caddy/Caddyfile:/etc/caddy/Caddyfile
+      - /data/caddy/config:/config
+      - /data/caddy/data:/data
+      - /data/caddy/Caddyfile:/etc/caddy/Caddyfile
     ports:
       - 80:80
       - 443:443

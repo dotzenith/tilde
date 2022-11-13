@@ -1,21 +1,17 @@
 """
 A task file to deploy caddy
 """
-
+from os import environ
 from pyinfra import logger
-from pyinfra.operations import files
+from pyinfra.operations import files, server
 
-from tilde.helpers import USERNAME, DOMAIN, INTERNAL_DOMAIN, is_container_running
+from tilde.helpers import USERNAME, is_container_running
 
 
 # Spin up stack
 if is_container_running("caddy"):
     logger.info("Caddy container already running")
 else:
-
-    username = USERNAME
-    domain = DOMAIN
-    internal_domain = INTERNAL_DOMAIN
 
     files.directory(
         name="Make caddy data directory",  # type: ignore
@@ -29,6 +25,19 @@ else:
         src="templates/caddyfile.j2",
         dest="/data/caddy/Caddyfile",
         user=USERNAME,
-        DOMAIN=DOMAIN,
-        INTERNAL_DOMAIN=INTERNAL_DOMAIN,
+        DOMAIN=environ["DOMAIN"],
+        INTERNAL_DOMAIN=environ["INTERNAL_DOMAIN"],
+    )
+
+    server.shell(
+        name="Build caddy cloudflare image", # type: ignore
+        commands=[f"docker build -t caddycloudflare:latest -f /home/{USERNAME}/tilde/compose/caddy/Dockerfile"],
+    )
+
+    server.shell(
+        name="Deploy caddy container",  # type: ignore
+        commands=[
+            f"docker compose -f /home/{USERNAME}/tilde/compose/caddy/caddy.yml \
+              --env-file /home/{USERNAME}/tilde/compose/.env up -d"
+        ],
     )

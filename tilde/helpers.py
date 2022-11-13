@@ -9,8 +9,6 @@ from dotenv import dotenv_values
 from pyinfra import host
 
 USERNAME = os.environ["SERVER_USER"]
-DOMAIN = os.environ["DOMAIN"]
-INTERNAL_DOMAIN = os.environ["INTERNAL_DOMAIN"]
 
 def is_container_running(container_name: str) -> bool:
     """

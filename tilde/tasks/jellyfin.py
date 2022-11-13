@@ -31,14 +31,12 @@ else:
         path="/data/jellyfin/tv",
         present=True,
         user=USERNAME,
-        _sudo=True,  # type: ignore
     )
     files.directory(
         name="Make jellyfin music directory",  # type: ignore
         path="/data/jellyfin/music",
         present=True,
         user=USERNAME,
-        _sudo=True,  # type: ignore
     )
     server.shell(
         name="Deploy Jellyfin container",  # type: ignore
@@ -46,5 +44,4 @@ else:
             f"docker compose -f /home/{USERNAME}/tilde/compose/jellyfin.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
-        _sudo=True,  # type: ignore
     )
