@@ -155,7 +155,7 @@ If everything goes as expected, you'll have a shiny new homeserver complete with
 
 ### ❖ What's New? 
 
-0.1.2 - Changes to directory structure and directory creation logic
+0.2.0 - Changes to data directory
 
 ---
 

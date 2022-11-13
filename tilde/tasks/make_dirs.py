@@ -18,11 +18,14 @@ files.directory(
     path="/data",
     user=USERNAME,
     present=True,
-    _sudo=True, # type: ignore
+    _sudo=True,  # type: ignore
 )
 
 server.shell(
-    name="Ensure permissions for /data", # type: ignore
-    commands=[f"chown -R {USERNAME}:{USERNAME} /data", "chmod -R a=,a+rX,u+w,g+w /data"],
-    _sudo=True, # type: ignore
+    name="Ensure permissions for /data",  # type: ignore
+    commands=[
+        f"chown -R {USERNAME}:{USERNAME} /data",
+        "chmod -R a=,a+rX,u+w,g+w /data",
+    ],
+    _sudo=True,  # type: ignore
 )
