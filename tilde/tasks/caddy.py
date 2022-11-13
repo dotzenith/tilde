@@ -13,6 +13,10 @@ if is_container_running("caddy"):
     logger.info("Caddy container already running")
 else:
 
+    username = USERNAME
+    domain = DOMAIN
+    internal_domain = INTERNAL_DOMAIN
+
     files.directory(
         name="Make caddy data directory",  # type: ignore
         path="/data/caddy",
@@ -25,4 +29,6 @@ else:
         src="templates/caddyfile.j2",
         dest="/data/caddy/Caddyfile",
         user=USERNAME,
+        DOMAIN=DOMAIN,
+        INTERNAL_DOMAIN=INTERNAL_DOMAIN,
     )

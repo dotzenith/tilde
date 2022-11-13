@@ -47,8 +47,8 @@ local.include("tasks/wireguard.py")
 # Deploy Nextcloud
 local.include("tasks/nextcloud.py")
 
+# Deploy Jellyfin
+local.include("tasks/jellyfin.py")
+
 # Deploy Caddy
 local.include("tasks/caddy.py")
-
-# Deploy Jellyfin
-local.include("tasks/deploy_jellyfin.py")
