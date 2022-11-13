@@ -40,7 +40,7 @@
   - A [Portainer](https://www.portainer.io/) instance to provide a nice GUI to manage all of your docker containers and deploy new ones.
   - A [Nextcloud](https://nextcloud.com/) instance set up with PostgreSQL and Alpine for your own personal cloud storage.
   - A [Jellffyin](https://jellyfin.org/) instance for media consumption.
-  - A [Caddy](https://caddyserver.com/) instance for automatic TLS and internal domains to access the services
+  - A [Caddy](https://caddyserver.com/) web server for automatic TLS and internal domains to access the services
 
 ---
 
@@ -192,6 +192,16 @@ $ ./run.sh                            # Run tilde on your homeserver
 ```
 
 If everything goes as expected, you'll have a shiny new homeserver complete with all the features mentioned earlier!
+
+If you opted to use Caddy. All services are available at `service.your-cloudflare-domain.com`. 
+
+If you opted to not use Caddy. The services are available at `homeserver-internal-ip:service-port`. 
+The mapping for the ports is as follows
+
+- `wireguard: 51821`
+- `portainer: 9000`
+- `nextcloud: 8080`
+- `jellyfin: 8096`
 
 ### ❖ What's New? 
 

@@ -2,11 +2,11 @@
 A task file to deploy caddy
 """
 from os import environ
+
 from pyinfra import logger
 from pyinfra.operations import files, server
 
 from tilde.helpers import USERNAME, is_container_running
-
 
 # Spin up stack
 if is_container_running("caddy"):
@@ -30,9 +30,11 @@ else:
     )
 
     server.shell(
-        name="Build caddy cloudflare image", # type: ignore
-        commands=[f"docker build -t caddycloudflare:latest /home/{USERNAME}/tilde/compose/caddy/"],
-        _sudo=True # type: ignore
+        name="Build caddy cloudflare image",  # type: ignore
+        commands=[
+            f"docker build -t caddycloudflare:latest /home/{USERNAME}/tilde/compose/caddy/"
+        ],
+        _sudo=True,  # type: ignore
     )
 
     server.shell(
@@ -41,5 +43,5 @@ else:
             f"docker compose -f /home/{USERNAME}/tilde/compose/caddy/caddy.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
-        _sudo=True # type: ignore
+        _sudo=True,  # type: ignore
     )

@@ -10,6 +10,7 @@ from pyinfra import host
 
 USERNAME = os.environ["SERVER_USER"]
 
+
 def is_container_running(container_name: str) -> bool:
     """
     Checks if a container is running in a very basic manner
