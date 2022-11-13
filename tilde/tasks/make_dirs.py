@@ -23,6 +23,6 @@ files.directory(
 
 server.shell(
     name="Ensure permissions for /data", # type: ignore
-    commands=["chown -R $USER:$USER /data", "chmod -R a=,a+rX,u+w,g+w /data"],
+    commands=[f"chown -R {USERNAME}:{USERNAME} /data", "chmod -R a=,a+rX,u+w,g+w /data"],
     _sudo=True, # type: ignore
 )
