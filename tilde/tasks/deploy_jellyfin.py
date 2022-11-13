@@ -16,26 +16,26 @@ else:
     # Make directories for jellyfin files
     files.directory(
         name="Make jellyfin config directory",  # type: ignore
-        path=f"/home/{USERNAME}/data/jellyfin/config",
+        path=f"/data/jellyfin/config",
         present=True,
         user=USERNAME,
     )
     files.directory(
         name="Make jellyfin movies directory",  # type: ignore
-        path=f"/home/{USERNAME}/data/jellyfin/movies",
+        path=f"/data/jellyfin/movies",
         present=True,
         user=USERNAME,
     )
     files.directory(
         name="Make jellyfin tv directory",  # type: ignore
-        path=f"/home/{USERNAME}/data/jellyfin/tv",
+        path=f"/data/jellyfin/tv",
         present=True,
         user=USERNAME,
         _sudo=True,  # type: ignore
     )
     files.directory(
         name="Make jellyfin music directory",  # type: ignore
-        path=f"/home/{USERNAME}/data/jellyfin/music",
+        path=f"/data/jellyfin/music",
         present=True,
         user=USERNAME,
         _sudo=True,  # type: ignore

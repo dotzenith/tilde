@@ -53,7 +53,7 @@ if is_container_running("wireguard"):
 else:
     files.directory(
         name="Make directory for Wireguard",  # type: ignore
-        path=f"/home/{USERNAME}/data/wireguard",
+        path=f"/data/wireguard",
         user=USERNAME,
         present=True,
     )
