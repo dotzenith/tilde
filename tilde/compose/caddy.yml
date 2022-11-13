@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   Caddy:
-    image: caddycloudflare:latest
+    image: dotzenith/caddy-cloudflare:latest
     container_name: caddy
     privileged: true
     environment:
