@@ -26,7 +26,7 @@ else:
         dest="/data/caddy/Caddyfile",
         user=USERNAME,
         DOMAIN=environ["DOMAIN"],
-        INTERNAL_DOMAIN=environ["INTERNAL_DOMAIN"],
+        INTERNAL_IP=environ["INTERNAL_IP"],
     )
 
     server.shell(

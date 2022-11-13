@@ -40,6 +40,7 @@
   - A [Portainer](https://www.portainer.io/) instance to provide a nice GUI to manage all of your docker containers and deploy new ones.
   - A [Nextcloud](https://nextcloud.com/) instance set up with PostgreSQL and Alpine for your own personal cloud storage.
   - A [Jellffyin](https://jellyfin.org/) instance for media consumption.
+  - A [Caddy](https://caddyserver.com/) instance for automatic TLS and internal domains to access the services
 
 ---
 
@@ -77,7 +78,7 @@ host *
 
 NOTE: This is for your personal machine, NOT for the server. 
 
-If you're on a different OS, the guide has instructions for windows and linux as well, I trust that you'll be able to follow them :)
+If you're on a different OS, the Github guide has instructions for windows and linux as well, I trust that you'll be able to follow them :)
 
 <b></b>
 
@@ -95,17 +96,56 @@ With a residential internet connection, your public IP is liable to change at an
 
 tilde assumes this will be done using Cloudflare and your own domain. You can also use something like [freedns](https://freedns.afraid.org/) but you'll need to modify some code to get that to work. 
 
-Once you have a domain from either Cloudflare itself or transferred over to Cloudflare's DNS servers, you'll need to add a new "A" record. Make sure the proxy status for the record is set to `DNS` only.
+Once you have a domain from either Cloudflare itself or transferred over to Cloudflare's DNS servers, you'll need to add a new "A" record. Make sure `Proxy status` is set to to `DNS only`. 
 
 When you have all of that taken care of, you'll just need to fill out the [update script](./tilde/templates/cloudflare-template.sh) 
 
-NOTE: You only need to fill out the following values:
+NOTE: You only need to fill out the following values, the script also has instructions on how to get these values:
 
 - `auth_email`
 - `auth_key`
 - `zone_identifier`
 - `record_name`
 - `sitename` (optional)
+
+<b></b>
+
+#### ❖ Automatic TLS with Caddy
+
+If you'd like to set up your services with automatic TLS (i.e. HTTPS) without exposing them to the internet, you'll need to set that up using Cloudflare as well. 
+
+NOTE: If you don't need/want TLS for your internal services, feel free to skip this. You'll just have to comment out the call to the caddy task in [deploy.py](./tilde/deploy.py)
+
+Add the following "A" records to your domain on the Cloudflare dashboard:
+
+- `wireguard`
+- `portainer`
+- `jellyfin`
+- `nextcloud`
+
+Set the `Content` field to the internal IP of your homeserver and make sure `Proxy status` is set to to `DNS only`
+
+Next: Create an API token for the DNS challenge (for more background, see https://github.com/libdns/cloudflare/blob/master/README.md):
+
+1. In the upper right, click the person icon and navigate to `My Profile`, and then select the `API Tokens` tab.
+1. Click the `Create Token` button, and then `Use template` on `Edit zone DNS`.
+1. Edit the `Token name` field if you prefer a more descriptive name.
+1. Under `Permissions`, the `Zone / DNS / Edit` permission should already be populated. Add another permission: `Zone / Zone / Read`.
+1. Under `Zone Resources`, set `Include / Specific zone / example.com` (replacing `example.com` with your domain).
+1. Under `TTL`, set an End Date for when your token will become inactive. You might want to choose one far in the future.
+1. Create the token and copy the token value.
+
+Once you have the API token, fill out the following values in the [.env file](./tilde/compose/.env):
+
+- `CLOUDFLARE_EMAIL=<your-cloudflare-email>`
+- `CLOUDFLARE_API_TOKEN=<the-API-token-you-just-generated>`
+
+As a last step, fill out the following values in the [run script](./run.sh) as well:
+
+- `DOMAIN=<your-cloudflare-domain.tld>`
+- `INTERNAL_IP=<the-internal-ip-address-of-your-homeserver>`
+
+NOTE: Nextcloud currently runs without TLS because of some weird issues with Caddy, this should be updated in the future
 
 <b></b>
 
@@ -155,7 +195,7 @@ If everything goes as expected, you'll have a shiny new homeserver complete with
 
 ### ❖ What's New? 
 
-0.2.0 - Changes to data directory
+0.3.0 - Added Caddy for automatic TLS
 
 ---
 
