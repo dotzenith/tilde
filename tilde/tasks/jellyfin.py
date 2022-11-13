@@ -44,4 +44,5 @@ else:
             f"docker compose -f /home/{USERNAME}/tilde/compose/jellyfin.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
+        _sudo=True, #type: ignore
     )

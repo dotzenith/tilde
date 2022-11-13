@@ -31,7 +31,8 @@ else:
 
     server.shell(
         name="Build caddy cloudflare image", # type: ignore
-        commands=[f"docker build -t caddycloudflare:latest -f /home/{USERNAME}/tilde/compose/caddy/Dockerfile"],
+        commands=[f"docker build -t caddycloudflare:latest /home/{USERNAME}/tilde/compose/caddy/"],
+        _sudo=True # type: ignore
     )
 
     server.shell(
@@ -40,4 +41,5 @@ else:
             f"docker compose -f /home/{USERNAME}/tilde/compose/caddy/caddy.yml \
               --env-file /home/{USERNAME}/tilde/compose/.env up -d"
         ],
+        _sudo=True # type: ignore
     )
