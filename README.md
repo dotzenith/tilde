@@ -197,7 +197,7 @@ If you opted to use Caddy. All services are available at `service.your-cloudflar
 
 If you opted to not use Caddy. The services are available at `homeserver-internal-ip:service-port`
 
-The mapping for the ports is as follows
+The mapping for the ports is as follows:
 
 - `wireguard: 51821`
 - `portainer: 9000`
