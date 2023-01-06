@@ -50,5 +50,5 @@ local.include("tasks/nextcloud.py")
 # Deploy Jellyfin
 local.include("tasks/jellyfin.py")
 
-# Deploy Caddy
+# Deploy nginx
 local.include("tasks/nginx.py")
