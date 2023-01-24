@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tilde"
-version = "0.4.0"
+version = "0.4.1"
 description = "An automatic homeserver deployment, forever a work in progress"
 authors = ["dotzenith"]
 license = "MIT"
@@ -8,8 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pyinfra = "^2.4"
-python-dotenv = "^0.21.0"
+pyinfra = "^2.6.1"
+python-dotenv = "^0.21.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"

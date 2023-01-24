@@ -167,7 +167,7 @@ Feel free to use Nginx Proxy Manager to set up internal domains for these servic
 
 ### ❖ What's New? 
 
-0.4.0 - Removed Caddy and switched to Nginx Proxy Manager
+0.4.1 - Dependency update
 
 ---
 
