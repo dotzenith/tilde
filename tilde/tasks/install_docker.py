@@ -39,7 +39,7 @@ else:
     server.shell(
         name=f"Create docker group and add {USERNAME} to group",  # type: ignore
         commands=[
-            "getent group somegroupname || groupadd somegroupname",
+            "getent group docker || groupadd docker",
             f"usermod -aG docker {USERNAME}",
         ],
         _sudo=True,  # type: ignore
