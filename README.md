@@ -39,7 +39,7 @@
   - Dynamic DNS using [Cloudflare](https://www.cloudflare.com/) so that the Wireguard doesn't just stop working randomly.
   - A [Portainer](https://www.portainer.io/) instance to provide a nice GUI to manage all of your docker containers and deploy new ones.
   - A [Nextcloud](https://nextcloud.com/) instance set up with PostgreSQL and Alpine for your own personal cloud storage.
-  - A [Jellffyin](https://jellyfin.org/) instance for media consumption.
+  - A [Jellyfin](https://jellyfin.org/) instance for media consumption.
   - A [Nginx Proxy Manager](https://nginxproxymanager.com/) Instance for reverse proxy and TLS (Configured by the user)
 
 ---
