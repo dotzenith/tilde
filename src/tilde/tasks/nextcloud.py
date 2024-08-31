@@ -4,21 +4,24 @@ A task file to deploy nextcloud
 Uses a docker-compose file to spin up the stack with Nextcloud, Postgres, and Redis
 """
 
-from pyinfra import logger
-from pyinfra.operations import server
+from pyinfra.operations import server, files
 
-from tilde.helpers import USERNAME, is_container_running
+from tilde.vars import USERNAME, HOME, PG_PASS
 
-# Spin up stack
-if is_container_running("nextcloud"):
-    logger.info("Nextcloud container already running")
-else:
-
-    server.shell(
-        name="Deploy Nextcloud container",  # type: ignore
-        commands=[
-            f"docker compose -f /home/{USERNAME}/tilde/compose/nextcloud.yml \
-              --env-file /home/{USERNAME}/tilde/compose/.env up -d"
-        ],
-        _sudo=True,  # type: ignore
-    )
+files.directory(
+    name="Make nextcloud tilde directory",
+    path=f"{HOME}/tilde/nextcloud",
+    present=True,
+    user=USERNAME,
+)
+files.template(
+    name="Copy Nextcloud Docker Compose",
+    src="templates/nextcloud.yml.j2",
+    dest=f"{HOME}/tilde/nextcloud/docker-compose.yml",
+    pg_pass = PG_PASS
+)
+server.shell(
+    name="Deploy Nextcloud container",
+    commands=[f"cd {HOME}/tilde/nextcloud", "docker compose up -d"],
+    _sudo=True,  
+)

@@ -6,4 +6,4 @@ Currently only has one element since tilde is meant for a single homeserver, but
 
 import os
 
-my_hosts = [os.environ["HOMESERVER"]]
+my_hosts = [os.environ["HOST"]]

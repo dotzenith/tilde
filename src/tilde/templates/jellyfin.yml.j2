@@ -1,4 +1,3 @@
-version: "2.1"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
@@ -8,10 +7,10 @@ services:
       - PGID=1000
       - TZ=America/New_York
     volumes:
-      - /data/jellyfin/config:/config
-      - /data/jellyfin/tv:/data/tv
-      - /data/jellyfin/movies:/data/movies
-      - /data/jellyfin/music:/data/music 
+      - {{ jellyfin_config }}:/config
+      - {{ jellyfin_tv }}:/data/tv
+      - {{ jellyfin_movies }}:/data/movies
+      - {{ jellyfin_music }}:/data/music 
     ports:
       - 8096:8096
       - 8920:8920 #optional
