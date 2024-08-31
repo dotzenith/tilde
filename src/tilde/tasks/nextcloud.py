@@ -22,6 +22,6 @@ files.template(
 )
 server.shell(
     name="Deploy Nextcloud container",
-    commands=[f"cd {HOME}/tilde/nextcloud", "docker compose up -d"],
+    commands=[f"cd {HOME}/tilde/nextcloud && docker compose up -d"],
     _sudo=True,  
 )

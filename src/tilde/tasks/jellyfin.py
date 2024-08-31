@@ -60,6 +60,6 @@ files.template(
 )
 server.shell(
     name="Deploy Jellyfin container",
-    commands=[f"cd {HOME}/tilde/jellyfin", "docker compose up -d"],
+    commands=[f"cd {HOME}/tilde/jellyfin && docker compose up -d"],
     _sudo=True,  
 )

@@ -32,6 +32,6 @@ files.template(
 )
 server.shell(
     name="Deploy Wireguard container",
-    commands=[f"cd {HOME}/tilde/wireguard", "docker compose up -d"],
+    commands=[f"cd {HOME}/tilde/wireguard && docker compose up -d"],
     _sudo=True,  
 )

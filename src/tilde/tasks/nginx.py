@@ -41,6 +41,6 @@ files.template(
 )
 server.shell(
     name="Deploy Nginx container",
-    commands=[f"cd {HOME}/tilde/nginx", "docker compose up -d"],
+    commands=[f"cd {HOME}/tilde/nginx && docker compose up -d"],
     _sudo=True,  
 )
