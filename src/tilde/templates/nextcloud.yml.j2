@@ -1,27 +1,16 @@
+volumes:
+  nextcloud:
+
 services:
-  nc:
-    image: nextcloud
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
     environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_PASSWORD={{ pg_pass }}
-      - POSTGRES_DB=nextcloud
-      - POSTGRES_USER=nextcloud
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - nextcloud:/var/www/html
     ports:
       - 8080:80
-    restart: always
-    volumes:
-      - nc_data:/var/www/html
-  db:
-    image: postgres:alpine
-    environment:
-      - POSTGRES_PASSWORD={{ pg_pass }}
-      - POSTGRES_DB=nextcloud
-      - POSTGRES_USER=nextcloud
-    restart: always
-    volumes:
-      - db_data:/var/lib/postgresql/data
-    expose:
-      - 5432
-volumes:
-  db_data:
-  nc_data:
+    restart: unless-stopped
