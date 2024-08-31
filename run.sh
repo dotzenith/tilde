@@ -5,4 +5,4 @@ export SERVER_USER=
 export HOMESERVER=
 
 # Run
-cd tilde && pyinfra inventory.py deploy.py
+cd src/tilde && pyinfra inventory.py deploy.py
