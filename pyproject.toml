@@ -1,13 +1,20 @@
 [project]
 name = "tilde"
-version = "0.1.0"
+version = "0.4.2"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pyinfra>=3.1",
+    "python-dotenv>=1.0.1",
 ]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "black>=24.8.0",
+    "isort>=5.13.2",
+]
