@@ -38,7 +38,7 @@ server.crontab(
     name="Add Crontab for Dynamic DNS",
     command=f"{HOME}/.cargo/bin/zendns --config {zendns_config} --log {zendns_logfile}",
     minute="0",
-    hour="0",
+    hour="*/12",
     month="*",
     day_of_week="*",
     day_of_month="*",
