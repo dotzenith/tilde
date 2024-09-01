@@ -51,9 +51,9 @@ While tilde is meant to be very hands off, there's still a few things you'll nee
 
 #### ❖ The server itself
 
-- A machine running Debian 12 or above (for future).
-- SSH access with a non-root user.
-- Sudo privileges for the non-root user.
+- A machine running Debian 12 or above (for future)
+- SSH access with a non-root user
+- Sudo privileges for the non-root user
 
 
 If you don't have ssh keys set up, please take a look at the [Github Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on the topic.
