@@ -1,4 +1,3 @@
-version: '3'
 services:
   app:
     container_name: nginx-proxy-manager
@@ -9,5 +8,5 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - /data/nginx/data:/data
-      - /data/nginx/letsencrypt:/etc/letsencrypt
+      - {{ nginx_data }}:/data
+      - {{ nginx_letsencrypt }}:/etc/letsencrypt

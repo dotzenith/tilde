@@ -1,43 +1,46 @@
 """
-A task file to deploy caddy
+A task file to deploy nginx
 """
-from os import environ
-
-from pyinfra import logger
 from pyinfra.operations import files, server
 
-from tilde.helpers import USERNAME, is_container_running
+from tilde.vars import USERNAME, HOME
 
-# Spin up stack
-if is_container_running("nginx-proxy-manager"):
-    logger.info("NPM container already running")
-else:
+nginx_data = f"{HOME}/container-data/nginx/data"
+nginx_letsencrypt = f"{HOME}/container-data/nginx/letsencrypt"
 
-    files.directory(
-        name="Make nginx directory",  # type: ignore
-        path="/data/nginx",
-        present=True,
-        user=USERNAME,
-    )
-
-    files.directory(
-        name="Make nginx data directory",  # type: ignore
-        path="/data/nginx/data",
-        present=True,
-        user=USERNAME,
-    )
-
-    files.directory(
-        name="Make nginx letsencrypt directory",  # type: ignore
-        path="/data/nginx/letsencrypt",
-        present=True,
-        user=USERNAME,
-    )
-
-    server.shell(
-        name="Deploy Nginx Proxy Manager container",  # type: ignore
-        commands=[
-            f"docker compose -f /home/{USERNAME}/tilde/compose/nginx.yml up -d"
-        ],
-        _sudo=True,  # type: ignore
-    )
+files.directory(
+    name="Make nginx container directory",
+    path=f"{HOME}/container-data/nginx",
+    present=True,
+    user=USERNAME,
+)
+files.directory(
+    name="Make nginx data directory",
+    path=nginx_data,
+    present=True,
+    user=USERNAME,
+)
+files.directory(
+    name="Make nginx letsencrypt directory",
+    path=nginx_letsencrypt,
+    present=True,
+    user=USERNAME,
+)
+files.directory(
+    name="Make Nginx tilde directory",
+    path=f"{HOME}/tilde/nginx",
+    present=True,
+    user=USERNAME,
+)
+files.template(
+    name="Copy Nginx Docker Compose",
+    src="templates/nginx.yml.j2",
+    dest=f"{HOME}/tilde/nginx/docker-compose.yml",
+    nginx_data = nginx_data,
+    nginx_letsencrypt = nginx_letsencrypt
+)
+server.shell(
+    name="Deploy Nginx container",
+    commands=[f"cd {HOME}/tilde/nginx && docker compose up -d"],
+    _sudo=True,  
+)

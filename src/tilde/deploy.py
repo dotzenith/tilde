@@ -10,45 +10,28 @@ _use_sudo_password = True
 
 # Update Apt
 apt.update(
-    name="Update apt repositories",  # type: ignore
-    _sudo=True,  # type: ignore
+    name="Update apt repositories",
+    _sudo=True,
 )
 
 # Add some crucial packages
 apt.packages(
-    name="Install crucial packages",  # type: ignore
-    packages=["sudo", "curl", "git"],
-    _sudo=True,  # type: ignore
+    name="Install crucial packages",
+    packages=["curl", "git"],
+    _sudo=True,
 )
 
 # Installing frequently used packages
 apt.packages(
-    name="Install frequently used packages",  # type: ignore
+    name="Install frequently used packages",
     packages=["vim", "neofetch"],
-    _sudo=True,  # type: ignore
+    _sudo=True,
 )
 
-
-# Set up some directories
 local.include("tasks/make_dirs.py")
-
-# Sync Files
-local.include("tasks/sync_files.py")
-
-# Install Docker
 local.include("tasks/install_docker.py")
-
-# Deploy Portainer
-local.include("tasks/portainer.py")
-
-# Deploy Wireguard
+local.include("tasks/zendns.py")
 local.include("tasks/wireguard.py")
-
-# Deploy Nextcloud
 local.include("tasks/nextcloud.py")
-
-# Deploy Jellyfin
 local.include("tasks/jellyfin.py")
-
-# Deploy nginx
 local.include("tasks/nginx.py")
