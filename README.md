@@ -175,7 +175,7 @@ Feel free to use Nginx Proxy Manager to set up internal domains for these servic
 
 ### ❖ What's New? 
 
-0.5.0 - Update to pyinfra v3 and use zendns
+0.6.0 - Added Grafana and Prometheus
 
 ---
 
