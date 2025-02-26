@@ -125,6 +125,10 @@ export HOST=<homeserver-from-your-ssh-config>
 
 export WIREGUARD_PASSWORD=<password-you-want-for-wireguard-ui>
 export WIREGUARD_HOST=<your-subdomain.duckdns.org>
+
+# Can be obtained by running `id $user`
+export uid=<>
+export gid=<>
 ```
 > Without the < >
 
