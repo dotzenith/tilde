@@ -6,7 +6,7 @@ Uses a docker-compose file to spin up the stack with Nextcloud, Postgres, and Re
 
 from pyinfra.operations import server, files
 
-from tilde.vars import USERNAME, HOME
+from tilde.vars import USERNAME, HOME, UID, GID, TZ
 
 files.directory(
     name="Make nextcloud tilde directory",
@@ -18,6 +18,9 @@ files.template(
     name="Copy Nextcloud Docker Compose",
     src="templates/nextcloud.yml.j2",
     dest=f"{HOME}/tilde/nextcloud/docker-compose.yml",
+    UID = UID,
+    GID = GID,
+    TZ = TZ
 )
 server.shell(
     name="Deploy Nextcloud container",

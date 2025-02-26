@@ -5,7 +5,7 @@ Creates directories for Jellffin data and uses a docker-compose file to spin up 
 """
 
 from pyinfra.operations import files, server
-from tilde.vars import HOME, USERNAME
+from tilde.vars import HOME, USERNAME, UID, GID, TZ
 
 jellyfin_config = f"{HOME}/container-data/jellyfin/config"
 jellyfin_movies = f"{HOME}/container-data/jellyfin/movies"
@@ -56,7 +56,10 @@ files.template(
     jellyfin_config = jellyfin_config,
     jellyfin_movies = jellyfin_movies,
     jellyfin_tv = jellyfin_tv,
-    jellyfin_music = jellyfin_music
+    jellyfin_music = jellyfin_music,
+    UID = UID,
+    GID = GID,
+    TZ = TZ
 )
 server.shell(
     name="Deploy Jellyfin container",
