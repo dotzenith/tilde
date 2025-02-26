@@ -3,8 +3,8 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
     environment:
-      - PUID={{ uid }}
-      - PGID={{ gid }}
+      - PUID={{ UID }}
+      - PGID={{ GID }}
       - TZ=America/New_York
     volumes:
       - {{ jellyfin_config }}:/config
