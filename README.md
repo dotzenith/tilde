@@ -127,8 +127,8 @@ export WIREGUARD_PASSWORD=<password-you-want-for-wireguard-ui>
 export WIREGUARD_HOST=<your-subdomain.duckdns.org>
 
 # Can be obtained by running `id $user`
-export uid=<>
-export gid=<>
+export TILDE_UID=<uid-here>
+export TILDE_GID=<gid-here>
 ```
 > Without the < >
 

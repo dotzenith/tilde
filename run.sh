@@ -8,5 +8,10 @@ export HOST=
 export WIREGUARD_PASSWORD=
 export WIREGUARD_HOST=
 
+
+# Can be obtained by running `id $user`
+export TILDE_UID=
+export TILDE_GID=
+
 # Run
 cd src/tilde && pyinfra inventory.py deploy.py
