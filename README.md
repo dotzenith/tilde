@@ -39,6 +39,8 @@
   - Dynamic DNS using [DuckDNS](https://www.duckdns.org/) so that wireguard can always connect you to your services
   - A [Nextcloud](https://nextcloud.com/) instance for your own cloud storage
   - A [Jellyfin](https://jellyfin.org/) instance for media consumption
+  - [Grafana](https://grafana.com/) with [Prometheus](https://prometheus.io/) for server monitoring
+    - Comes with [Node Exporter](https://github.com/prometheus/node_exporter) (System Stats) and [cadvisor](https://github.com/google/cadvisor) (Container Stats) pre-configured. Add any dashboard compatible with them.
   - A [Nginx Proxy Manager](https://nginxproxymanager.com/) Instance for reverse proxy and TLS (Configured by the user)
 
 ---
@@ -129,6 +131,9 @@ export WIREGUARD_HOST=<your-subdomain.duckdns.org>
 # Can be obtained by running `id $user`
 export TILDE_UID=<uid-here>
 export TILDE_GID=<gid-here>
+
+# Timezone see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+export TZ=America/New_York
 ```
 > Without the < >
 
@@ -164,6 +169,7 @@ The mapping for the ports is as follows:
 - `nextcloud:   8080`
 - `jellyfin:    8096`
 - `wireguard:   51821`
+- `grafana:     3000`
 
 Feel free to use Nginx Proxy Manager to set up internal domains for these services
 
