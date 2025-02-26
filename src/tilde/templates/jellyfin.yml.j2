@@ -5,7 +5,7 @@ services:
     environment:
       - PUID={{ UID }}
       - PGID={{ GID }}
-      - TZ=America/New_York
+      - TZ={{ TZ }}
     volumes:
       - {{ jellyfin_config }}:/config
       - {{ jellyfin_tv }}:/data/tv
