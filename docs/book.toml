@@ -1,0 +1,11 @@
+[book]
+authors = ["dotzenith"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Tilde Docs"
+
+[output.html]
+additional-css = ["./theme/catppuccin.css"]
+default-theme = "Latte"
+preferred-dark-theme = "Mocha"
