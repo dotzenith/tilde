@@ -2,7 +2,7 @@
 
 As the final pre-requisite before we deploy, you'll also need to fill out some environment variables in the [run script](https://github.com/dotzenith/tilde/blob/main/run.sh).
 
-```
+```bash
 # run.sh
 
 export USERNAME=<username>

@@ -41,7 +41,7 @@ For the sake of security and to generally make our lives easier, we will not be 
 The Debian Installer should have guided you to create another user. But just in case it didn't, if you're already
 logged in as root, you can create a new user by running the following command:
 
-```
+```bash
 adduser <username>
 ```
 
