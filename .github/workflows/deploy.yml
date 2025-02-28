@@ -1,0 +1,23 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: 2222
+        command_timeout: 30m
+        script: |
+          cd ~/web/tilde
+          git pull origin main
+          cd docs
+          mdbook build
