@@ -1,4 +1,4 @@
-<h2 align="center"> ━━━━━━  ❖  ━━━━━━ </h2>
+<h1 align="center"> ━━━  ❖  ━━━ </h1>
 
 <!-- BADGES -->
 <div align="center">
@@ -18,7 +18,7 @@
 
 ---
 
-### ❖ Information 
+## ❖ Information
 
 <b></b>
 
@@ -33,7 +33,7 @@ using [Docker](https://www.docker.com/). Please note that Tilde only targets and
 
 ---
 
-### ❖ Features
+## ❖ Features
 
 <b></b>
 
@@ -47,6 +47,6 @@ using [Docker](https://www.docker.com/). Please note that Tilde only targets and
 
 ---
 
-### ❖ User Guide
+## ❖ User Guide
 
-Visit: [tilde.dotzenith.xyz](https://tilde.dotzenith.xyz/)
+### [tilde.dotzenith.xyz](https://tilde.dotzenith.xyz/)
