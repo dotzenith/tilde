@@ -9,3 +9,5 @@ title = "Tilde Docs"
 additional-css = ["./theme/catppuccin.css"]
 default-theme = "Latte"
 preferred-dark-theme = "Mocha"
+
+[preprocessor.alerts]
