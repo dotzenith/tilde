@@ -49,4 +49,4 @@ using [Docker](https://www.docker.com/). Please note that Tilde only targets and
 
 ### ❖ User Guide
 
-TODO: Add link here
+Visit: [tilde.dotzenith.xyz](https://tilde.dotzenith.xyz/)
