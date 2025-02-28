@@ -1,6 +1,6 @@
 # ❖ Introduction
 
-Tilde aims to be starting point for anyone getting started in their selfhosting journey. 
+Tilde aims to be starting point for anyone getting started in their self-hosting journey.
 It uses [Pyinfra](https://pyinfra.com/) to configure a new server and deploy commonly used applications
 using [Docker](https://www.docker.com/). Please note that Tilde only targets and supports
 [Debian](https://www.debian.org/).

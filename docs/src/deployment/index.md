@@ -2,7 +2,8 @@
 
 After all that work, we are finally ready to deploy!!
 
-Tilde only has one dependency: `pyinfra`. You can either use [uv](https://docs.astral.sh/uv/) like I do, or just use a venv and install `pyinfra` yourself, it's totally up to you!
+Tilde only has one dependency: [pyinfra](https://pyinfra.com/). You can either use [uv](https://docs.astral.sh/uv/) like I do,
+or just use a venv and install [pyinfra](https://pyinfra.com/) yourself, it's totally up to you!
 
 ## ❖ Using uv
 
@@ -28,8 +29,8 @@ The services are available at `homeserver-internal-ip:service-port`
 The mapping for the ports is as follows:
 ```
 Nginx Proxy Manager:       81
-Nextcloud:                 8080
-Jellyfin:                  8096
-Grafana:                   3000
 Wireguard:                 51821
+Grafana:                   3000
+Jellyfin:                  8096
+Nextcloud:                 8080
 ```
