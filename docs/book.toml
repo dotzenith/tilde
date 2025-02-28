@@ -1,0 +1,13 @@
+[book]
+authors = ["dotzenith"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Tilde User Guide"
+
+[output.html]
+additional-css = ["./theme/catppuccin.css"]
+default-theme = "Latte"
+preferred-dark-theme = "Mocha"
+
+[preprocessor.alerts]
