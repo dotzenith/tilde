@@ -29,7 +29,7 @@ using [Docker](https://www.docker.com/). Please note that Tilde only targets and
 
 <b></b>
 
-<img src="https://github.com/dotzenith/dotzenith/blob/main/assets/tilde/tilde.png" alt="tilde photo">
+<img src="https://assets.danshu.co/tilde/tilde.png" alt="tilde photo">
 
 ---
 
