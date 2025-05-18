@@ -17,7 +17,7 @@ jobs:
         port: 2222
         command_timeout: 30m
         script: |
-          cd ~/web/tilde
+          cd /srv/web/tilde
           git pull origin main
           cd docs
           mdbook build
