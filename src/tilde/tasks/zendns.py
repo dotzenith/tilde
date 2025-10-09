@@ -8,7 +8,7 @@ from pyinfra.operations import files, server
 
 from tilde.vars import HOME, USERNAME
 
-zendns_config = f"{HOME}/tilde/zendns/config.yaml"
+zendns_config = f"{HOME}/tilde/zendns/config.json"
 zendns_logfile = f"{HOME}/tilde/zendns/zendns.log"
 
 files.directory(
@@ -19,7 +19,7 @@ files.directory(
 )
 files.template(
     name="Copy ZenDNS config",
-    src="templates/zendns.yaml.j2",
+    src="templates/zendns.json.j2",
     dest=zendns_config,
 )
 server.shell(

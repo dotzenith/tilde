@@ -25,13 +25,19 @@ Assuming you're using [DuckDNS](https://www.duckdns.org/):
 - Pick a new subdomain on the website and click `add domain`
 - Copy the `token` from the website as well
 
-Fill out [src/tilde/templates/zendns.yaml.j2](https://github.com/dotzenith/tilde/blob/main/src/tilde/templates/zendns.yaml.j2). It should look something like:
-```yaml
-duckdns:
-  - token: "your-token"
-    domain: "your-subdomain.duckdns.org"
+Fill out [src/tilde/templates/zendns.json.j2](https://github.com/dotzenith/tilde/blob/main/src/tilde/templates/zendns.json.j2). It should look something like:
+```json
+{
+    "providers": [
+        {
+            "type": "duckdns",
+            "token": "your-token",
+            "domain": "your-hostname.duckdns.org"
+        }
+    ]
+}
 ```
 
 If you're not using DuckDNS, look at the docs for [ZenDNS](https://github.com/dotzenith/ZenDNS) and replace the contents of
-[src/tilde/templates/zendns.yaml.j2](https://github.com/dotzenith/tilde/blob/main/src/tilde/templates/zendns.yaml.j2)
+[src/tilde/templates/zendns.json.j2](https://github.com/dotzenith/tilde/blob/main/src/tilde/templates/zendns.json.j2)
 with configuration for your chosen provider.

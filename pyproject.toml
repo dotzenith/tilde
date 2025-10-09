@@ -1,6 +1,6 @@
 [project]
 name = "tilde"
-version = "0.6.0"
+version = "0.6.1"
 description = "A starting point for your home server rabbit hole"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,8 +12,8 @@ dependencies = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "black>=24.8.0",
     "isort>=5.13.2",
 ]
