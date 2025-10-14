@@ -19,4 +19,4 @@ jobs:
           cd ~/static/tilde
           git pull origin main
           cd docs
-          ~/.cargo/bin/mdbook build
+          PATH="$HOME/.cargo/bin:$PATH" mdbook build
