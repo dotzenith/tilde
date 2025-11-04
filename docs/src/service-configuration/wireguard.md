@@ -1,8 +1,8 @@
 # ❖ Wireguard
 
 Tilde uses [wg-easy](https://github.com/wg-easy/wg-easy) to make [Wireguard](https://www.wireguard.com/) VPN access easy.
-The password for the UI will be the one set in the [run script](https://github.com/dotzenith/tilde/blob/main/run.sh).
-You can add profiles for all of your devices, and access your services from anywhere.
+Opening the web-ui for wg-easy for the first time will guide you through the set up process.
+Once completed, you can add profiles for all of your devices, and access your services from anywhere.
 
 Do note that IP collisions can happen when using Wireguard. This is when your current network's private address space is the same as your home network.
 

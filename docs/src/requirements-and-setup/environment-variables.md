@@ -8,9 +8,6 @@ As the final pre-requisite before we deploy, you'll also need to fill out some e
 export USERNAME=<username>
 export HOST=<server-from-your-ssh-config>
 
-export WIREGUARD_PASSWORD=<password-you-want-for-wireguard-ui>
-export WIREGUARD_HOST=<your-subdomain.duckdns.org>
-
 # Can be obtained by running `id $user`
 export TILDE_UID=<uid-here>
 export TILDE_GID=<gid-here>
