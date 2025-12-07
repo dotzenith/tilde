@@ -24,7 +24,7 @@ apt.packages(
 # Installing frequently used packages
 apt.packages(
     name="Install frequently used packages",
-    packages=["vim", "neofetch"],
+    packages=["vim"],
     _sudo=True,
 )
 
